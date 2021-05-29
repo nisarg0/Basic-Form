@@ -12,34 +12,6 @@ const User = require("../model/User");
  * @description - User SignUp
  */
 
-// router.post("/signup", async (req, res) => {
-// 	// const { username, email, password } = req.body;
-// 	console.log(req.body);
-// 	// user = new User({
-// 	// 	username,
-// 	// 	email,
-// 	// 	password,
-// 	// });
-
-// 	// await user.save();
-
-// 	res.send("success");
-
-// 	// jwt.sign(
-// 	// 	payload,
-// 	// 	"randomString",
-// 	// 	{
-// 	// 		expiresIn: 10000,
-// 	// 	},
-// 	// 	(err, token) => {
-// 	// 		if (err) throw err;
-// 	// 		res.status(200).json({
-// 	// 			token,
-// 	// 		});
-// 	// 	}
-// 	// );
-// });
-
 router.post(
 	"/signup",
 	[
