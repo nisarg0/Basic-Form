@@ -11,6 +11,11 @@ const User = require("../model/User");
  * @param - /signup
  * @description - User SignUp
  */
+// Testing
+// router.post("/signup", async (req, res) => {
+// 	console.log(req.body);
+// 	res.send("success");
+// });
 
 router.post(
 	"/signup",

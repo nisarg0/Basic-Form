@@ -14,8 +14,10 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 // Middleware
-// Middleware
-app.use(bodyParser.json());
+// use this to check in postman
+// app.use(bodyParser.json());
+// use this for forms
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Middleware
 app.get("/", (req, res) => {
