@@ -8,30 +8,37 @@ const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectID;
 const USERDETAILS_CON_URL =
 	"mongodb+srv://root:root@userdetails.vfecg.mongodb.net/userDetails?retryWrites=true&w=majority";
-const DATABASE_NAME = "";
-
-const client = new MongoClient(USERDETAILS_CON_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-});
-MongoClient.connect(USERDETAILS_CON_URL, (err, client) => {
-	if (err) return console.error(err);
-	console.log("Connected to Database");
-});
+const DATABASE_NAME = "userDetails";
+const port = 5000;
 
 var app = Express();
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
 var database, collection;
 
-app.listen(5000, () => {
+app.post("/personnel", (request, response) => {
+	console.log(request.body);
+	collection.insertOne(request.body, (error, result) => {
+		if (error) {
+			console.log(error);
+			return;
+		}
+		console.log("Successfully inserted");
+	});
+	response.send("success");
+});
+
+app.listen(port, () => {
+	console.log(`Listening on port ${port}`);
+
 	MongoClient.connect(
 		USERDETAILS_CON_URL,
-		{ useNewUrlParser: true },
-		(error, client) => {
-			if (error) {
-				throw error;
-			}
+		{
+			useUnifiedTopology: true,
+		},
+		(err, client) => {
+			if (err) return console.error(err);
+
 			database = client.db(DATABASE_NAME);
 			collection = database.collection("personnel");
 			console.log("Connected to `" + DATABASE_NAME + "`!");
