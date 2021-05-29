@@ -1,28 +1,28 @@
-<form action="action_page.php">
+<form action="http://localhost:4000/user/login" method="POST">
 	<div class="container">
 		<h1>Login</h1>
 		<p>Please fill in this form to Login.</p>
 		<hr />
 
-		<label for="username"><b>Username</b></label>
+		<label for="email"><b>Email</b></label>
 		<input
 			type="text"
-			placeholder="Enter username"
-			name="username"
-			id="username"
+			value="john@gmail.com"
+			name="email"
+			id="email"
 			required
 		/>
-		<label for="psw"><b>Password</b></label>
+		<label for="password"><b>Password</b></label>
 		<input
 			type="password"
-			placeholder="Enter Password"
-			name="psw"
+			name="password"
+			value="123456"
 			required
 		/>
         </br>
         </br>
-		<div class="clearfix">
+
 			<button type="submit" class="loginbtn">Login</button>
-		</div>
+
 	</div>
 </form>
